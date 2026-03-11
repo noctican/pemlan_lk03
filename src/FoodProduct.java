@@ -6,7 +6,6 @@ public class FoodProduct extends Product {
         super(productId, name, price, stockQuantity);
         this.expiryDate = expiryDate;
     }
-    
     @Override
     public Double calculateDiscount() {
         if (getStockQuantity() > 10) {
@@ -14,10 +13,10 @@ public class FoodProduct extends Product {
         }
         return 0.0;
     }
-
     @Override
     public void getProductInfo() {
         super.getProductInfo();
         System.out.println("Expiry Date: " + expiryDate);
     }
+
 }
