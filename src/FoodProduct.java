@@ -7,7 +7,7 @@ public class FoodProduct extends Product {
         this.expiryDate = expiryDate;
     }
     @Override
-    public Double calculateDiscount() {
+    public double calculateDiscount() {
         if (getStockQuantity() > 10) {
             return 0.10; 
         }
@@ -16,7 +16,7 @@ public class FoodProduct extends Product {
     @Override
     public void getProductInfo() {
         super.getProductInfo();
-        System.out.println("Expiry Date: " + expiryDate);
+        System.out.println("Tanggal kadaluwarsa: " + expiryDate);
     }
 
 }
