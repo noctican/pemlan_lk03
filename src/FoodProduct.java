@@ -9,7 +9,7 @@ public class FoodProduct extends Product {
     @Override
     public double calculateDiscount() {
         if (getStockQuantity() > 10) {
-            return 0.10; 
+            return this.getPrice() * 0.10;
         }
         return 0.0;
     }

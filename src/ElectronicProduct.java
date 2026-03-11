@@ -7,11 +7,11 @@ public class ElectronicProduct extends Product {
         this.warrantyPeriod = warrantyPeriod;
     }
     @Override
-    public Double calculateDiscount(){
+    public double calculateDiscount(){
         if (getPrice() > 500000){
-            return 0.069;
+            return this.getPrice() * 0.069;
         }
-        return 0.05;
+        return this.getPrice() * 0.05;
     }
     @Override
     public void getProductInfo() {

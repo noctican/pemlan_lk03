@@ -6,14 +6,14 @@ public class ClothingProduct extends Product {
     private String size;
     private String brand;
 
-    public ClothingProduct(String productId, String name, Double price, int stockQuantity, String size, String brand) {
+    public ClothingProduct(String productId, String name, double price, int stockQuantity, String size, String brand) {
         super(productId, name, price, stockQuantity);
         this.size = size;
         this.brand = brand;
     }
 
     @Override
-    public Double calculateDiscount() {
+    public double calculateDiscount() {
         if (size.equals("L") || size.equals("XL")) return this.getPrice() * 0.15;
         return 0.0;
     }

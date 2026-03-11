@@ -4,11 +4,11 @@ public abstract class Product {
     // Atribut
     private String productId;
     private String name;
-    private Double price;
+    private double price;
     private int stockQuantity;
 
     // Constructor
-    public Product(String productId, String name, Double price, int stockQuantity){
+    public Product(String productId, String name, double price, int stockQuantity){
         this.productId = productId;
         this.name = name;
         this.price = price;
