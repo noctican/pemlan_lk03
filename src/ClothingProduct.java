@@ -1,3 +1,5 @@
+package src;
+
 import src.Product;
 
 public class ClothingProduct extends Product {
@@ -12,7 +14,23 @@ public class ClothingProduct extends Product {
 
     @Override
     public Double calculateDiscount() {
-        if (size.equals("L") || size.equals("XL")) return 1 - 0.15;
+        if (size.equals("L") || size.equals("XL")) return this.getPrice() * 0.15;
         return 0.0;
+    }
+
+    public String getSize() {
+        return size;
+    }
+
+    public String getBrand() {
+        return brand;
+    }
+
+    public void setSize(String size) {
+        this.size = size;
+    }
+
+    public void setBrand(String brand) {
+        this.brand = brand;
     }
 }
