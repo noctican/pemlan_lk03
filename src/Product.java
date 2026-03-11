@@ -16,7 +16,7 @@ public abstract class Product {
     }
 
     // Method
-    public abstract Double calculateDiscount();
+    public abstract double calculateDiscount();
     public void getProductInfo(){
         System.out.println("Product ID     : " + productId);
         System.out.println("Name           : " + name);
@@ -42,7 +42,7 @@ public abstract class Product {
         return this.name;
     }
 
-    public Double getPrice(){
+    public double getPrice(){
         return this.price;
     }
 
