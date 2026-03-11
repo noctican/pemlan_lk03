@@ -1,37 +1,68 @@
-<h1>pemlan-03</h1>
-Praktikum Pemrograman Lanjut Bab 3. Constructor dan Instance Method
+# LK03 - Kelas, Obyek, Constructor, Inheritance, Polymorphism, Overloading dan Overriding
 
-Buatlah sebuah Program Mesin ATM yang menerima input berupa nomor kartu ATM, dan password. Setiap Kartu ATM menyimpan data sebuah rekening yang berisikan nomor rekening, nama pemilik rekening, saldo, bank. Setiap Bank memiliki kode bank dan nama bank. Kartu ATM dapat digunakan untuk mengambil uang, mengecek saldo, dan transfer uang. Semua bank memiliki ketentuan
+## Kelompok
+| Nama | NIM | Kontribusi |
+| ---- | :--: | ---- |
+| Candra Andika Putra | 255150200111035 | - |
+| Haidar Nadhifa Putra | 255150201111031| - |
+| Bagas Zakaria | 255150207111064 | - |
+| Muhammad Hilmi Isnaeni | 255150201111026 | - |
+| Noval Zakky Ramadhan | 255150201111030 | - |
 
-Uang dapat diambil jika sisa sisa saldo setelah diambil lebih dari sama dengan 10rb rupiah
-Uang dapat di transfer jika sisa saldo setelah di transfer lebih dari sama dengan 25rb rupiah
-Uang yang di transfer ke rekening bank yang sama tidak ada potongan
-Uang yang di transfer ke rekening bank lain akan memiliki potongan 5rb rupiah (dan tetap harus lebih dari sama dengan 25rb rupiah setelah potongan)
-Harus ada constructor dari setiap kelas
+## Deskripsi Soal
+Sebagai seorang developer software , Anda diminta untuk merancang struktur dasar perangkat lunak untuk sebuah toko ritel offline bernama "Filkom Mart". Toko ini menjual berbagai kategori produk dengan aturan tertentu. Tugas Anda adalah membuat model class diagram dan aplikasi Point Of Sale (POS) dari toko Filkom Mart dan kemudian mengimplementasikannya kedalam program java menggunakan paradigma Pemrograman Berorientasi Object (PBO). 
 
-Misal: Rekening A Bank BRI Saldo 150rb Transfer 125rb ke Rekening B BANK BCA Saldo 50rb Transfer gagal karena 150rb - 125rb+5rb < 25rb Rekening A Bank BRI Saldo 150rb Transfer 120rb ke Rekening B BANK BCA Saldo 50rb Transfer berhasil karena 150rb - 120rb+5rb = 25rb, Saldo Rekening B 170rb
+## Spesifikasi Teknis
 
-Class ATM
-noAtm: int
-password: int
-rekening: Rekening
-cekPassword(int): boolean
-Class Bank +kode: int +nama: String
+### 1. Class Utama (Product)
 
-Class Rekening
+Definisikan class abstrak Product sebagai superclass dimana Atributnya sbb:
+- String productId
+- String name
+- double price
+- int stockQuantity
 
-noRek: int
+Sedangkan Methodnya adalah sbb:
+- Konstruktor default dan parameterized.
+- Method abstrak double calculateDiscount() — menghitung diskon untuk setiap produk.
+- Method getProductInfo() — menampilkan informasi produk dasar.
+- Overload method updateStock(int quantity) dan updateStock(int quantity, String
+reason).
 
-nama: String //Nama Pemilik Rekening
+### 2. Subclass (FoodProduct, ElectronicProduct, ClothingProduct)
 
-saldo: double
+Buat tiga subclass yang mewarisi dari Product:
+- FoodProduct: Produk makanan/minuman
+    - Atribut tambahan: String expiryDate
+    - Override calculateDiscount(): 10% jika stok > 10
+- ElectronicProduct: Produk elektronik
+    - Atribut tambahan: String warrantyPeriod
+    - Override calculateDiscount(): 5% + bonus 2% jika harga > 500rb
+- ClothingProduct: Produk pakaian
+    - Atribut tambahan: String size, String brand
+    - Override calculateDiscount(): 15% untuk ukuran L-XL
 
-bank: Bank
+### 3. Class Transaction
 
-cekSaldo(): void //Mengecek saldo
+Mengelola penjualan satu transaksi.
+- Atribut: String transactionId, Product[] items, int totalItems
+- Method:
+    - double processSale() — hitung total harga setelah diskon semua item
+    - Method overloading addItem(Product item) dan addItem(Product item, int quantity)
 
-ambil(int): boolean //Mengambil uang
+### 4. Class Utama ShopManagementSystem Di method main():
 
-transfer(Rekening, jumlah): void //Mentransfer dari rekening asal, ke rekening tujuan
+- Buat array bertipe Product[] berisi minimum 6 objek (2 per subclass).
+- Gunakan polymorphism untuk menampilkan info dan hitung diskon semua produk.
+- Simulasikan 2 transaksi penjualan menggunakan class Transaction.
+- Tampilkan laporan: total penjualan, produk terlaris, dll.
 
-Class Main (Masukan Kartu ATM, Masukan Password, Pilih (Cek Saldo, Ambil, Transfer), Jika Ambil Masukkan Nominal, Jika Transfer Masukkan Rekening, Masukkan Nominal)
+## Ketentuan
+
+Filtur yang wajib ada adalah:
+1. Enkapsulasi (getter/setter private fields)
+2. Inheritance (3 subclass dari Product)
+3. Method Overriding (calculateDiscount())
+4. Method Overloading (updateStock, addItem)
+5. Polymorphism (array Product[] + method calls)
+6. Object instantiation dan array (Pelajari arrayList)
