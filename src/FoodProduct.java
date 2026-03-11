@@ -8,7 +8,7 @@ public class FoodProduct extends Product {
     }
     
     @Override
-    public Double calculateDiscount() {
+    public double calculateDiscount() {
         if (getStockQuantity() > 10) {
             return 0.10; 
         }
@@ -20,5 +20,5 @@ public class FoodProduct extends Product {
         super.getProductInfo();
         System.out.println("Tanggal kadaluwarsa: " + expiryDate);
     }
-
 }
+
