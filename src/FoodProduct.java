@@ -18,6 +18,5 @@ public class FoodProduct extends Product {
         super.getProductInfo();
         System.out.println("Tanggal kadaluwarsa: " + expiryDate);
     }
+
 }
-
-
