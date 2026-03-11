@@ -1,7 +1,5 @@
 package src;
 
-import src.Product;
-
 public class ClothingProduct extends Product {
     private String size;
     private String brand;
