@@ -1,7 +1,6 @@
 package src;
 
 import java.util.ArrayList;
-import src.Product;
 
 public class Transaction {
     private String transactionId;
