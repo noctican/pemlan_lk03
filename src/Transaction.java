@@ -33,6 +33,7 @@ public class Transaction {
         totalItems += quantity;
     }
 
+    // Accessor
     public String getTransactionId() {
         return this.transactionId;
     }
@@ -43,5 +44,18 @@ public class Transaction {
 
     public ArrayList<Product> getItems() {
         return this.items;
+    }
+
+    // Setter
+    public void setTransactionId(String x){
+        this.transactionId = x;
+    }
+
+    public void setItems(ArrayList<Product> x) {
+        this.items = x;
+    }
+
+    public void setTotalItems(int x) {
+        this.totalItems = x;
     }
 }

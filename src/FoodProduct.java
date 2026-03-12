@@ -19,4 +19,14 @@ public class FoodProduct extends Product {
         System.out.println("Tanggal kadaluwarsa: " + expiryDate);
     }
 
+    // Accessor
+    public String getExpiryDate(){
+        return this.expiryDate;
+    }
+
+    // Setter
+    public void setExpiryDate(String x){
+        this.expiryDate = x;
+    }
+
 }

@@ -18,4 +18,14 @@ public class ElectronicProduct extends Product {
         super.getProductInfo();
         System.out.println("Warranty Period: " + warrantyPeriod);
     }
+
+    // Accessor
+    public String getWarrantyPeriod(){
+        return this.warrantyPeriod;
+    }
+
+    // Setter
+    public void setWarrantyPeriod(String x){
+        this.warrantyPeriod = x;
+    }
 }

@@ -49,4 +49,17 @@ public abstract class Product {
     public int getStockQuantity(){
         return this.stockQuantity;
     }
+
+    // Setter
+    public void setProductId(String x){
+        this.productId = x;
+    }
+
+    public void setName(String x){
+        this.name = x;
+    }
+
+    public void setPrice(double x){
+        this.price = x;
+    }
 }
