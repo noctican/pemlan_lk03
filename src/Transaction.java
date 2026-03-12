@@ -1,7 +1,6 @@
 package src;
 
 import java.util.ArrayList;
-import src.Product;
 
 public class Transaction {
     private String transactionId;
@@ -26,6 +25,7 @@ public class Transaction {
                 }
             }
         }
+        totalItems = terproses;
         System.out.println("Item yang terproses di Transaksi " + this.transactionId + " : " + terproses + " / " + totalItems);
         return totalPrice;
     }
