@@ -17,9 +17,15 @@ public class ShopManagementSystem {
         barangBarang[4] = new ClothingProduct("SHIRT-112", "Blue Shirt", 300.000, 10, "L", "Polo");
         barangBarang[5] = new ClothingProduct("PANTS-111", "Grey Jeans", 150.000, 15, "M", "Levi's");
 
+        System.out.println("=========== Informasi Product ===========");
         for (Product barang : barangBarang) {
             barang.getProductInfo();
+            System.out.println("----------------------------------");
         }
+
+
+        // Praktek Transaksi
+        Transaction Transaksi1 = new Transaction("T-0001");
     }
 }
 

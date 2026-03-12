@@ -17,7 +17,10 @@ public class Transaction {
         double totalPrice = 0;
         for (Product item : items) {
             if (item != null) {
-                totalPrice += item.getPrice() - item.calculateDiscount();
+                if(item.getStockQuantity() > 0){
+                    totalPrice += item.getPrice() - item.calculateDiscount();
+                    item.updateStock(item.getStockQuantity() - 1);
+                }
             }
         }
         return totalPrice;
