@@ -15,14 +15,18 @@ public class Transaction {
 
     public double processSale() {
         double totalPrice = 0;
+        int terproses = 0;
         for (Product item : items) {
             if (item != null) {
                 if(item.getStockQuantity() > 0){
                     totalPrice += item.getPrice() - item.calculateDiscount();
-                    item.updateStock(item.getStockQuantity() - 1);
+                    item.updateStock(1);
+                    item.updateSold(1);
+                    terproses++;
                 }
             }
         }
+        System.out.println("Item yang terproses di Transaksi " + this.transactionId + " : " + terproses + " / " + totalItems);
         return totalPrice;
     }
 
