@@ -52,9 +52,9 @@ public class ShopManagementSystem {
         
         // transaksi 1
         Transaction transaksi1 = new Transaction("TRX001");
-        transaksi1.addItem(barangBarang[0]); // Indomie Goreng
-        transaksi1.addItem(barangBarang[2], 2); // 2 Smartphone Samsung
-        transaksi1.addItem(barangBarang[4]); // Kaos Polos
+        transaksi1.addItem(barangBarang[0]);
+        transaksi1.addItem(barangBarang[2], 2);
+        transaksi1.addItem(barangBarang[4]);
         
         System.out.println(">>> TRANSAKSI 1 (ID: " + transaksi1.getTransactionId() + ") <<<");
         System.out.println("Daftar Item yang dibeli:");
@@ -93,8 +93,15 @@ public class ShopManagementSystem {
         System.out.println();
         
         // total penjualan
-        double totalPenjualan = totalTrans1 + totalTrans2;
-        System.out.println("Total Penjualan: Rp" + String.format("%.0f", totalPenjualan));
+        double totalPendapatan = totalTrans1 + totalTrans2;
+        double totalTerjual = 0;
+
+        for(Product x : barangBarang){
+            totalTerjual += x.getSoldQuantity();
+        }
+
+        System.out.println("Total Pendapatan: Rp" + String.format("%.0f", totalPendapatan));
+        System.out.println("Total Barang Terjual : " + totalTerjual);
         System.out.println();
         
         // rincian per transaksi

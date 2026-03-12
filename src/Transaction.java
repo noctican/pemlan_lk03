@@ -25,6 +25,7 @@ public class Transaction {
                 }
             }
         }
+        totalItems = terproses;
         System.out.println("Item yang terproses di Transaksi " + this.transactionId + " : " + terproses + " / " + totalItems);
         return totalPrice;
     }
