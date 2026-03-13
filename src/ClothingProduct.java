@@ -1,8 +1,7 @@
 package src;
 
 public class ClothingProduct extends Product {
-    private String size;
-    private String brand;
+    private String size, brand;
 
     public ClothingProduct(String productId, String name, double price, int stockQuantity, String size, String brand) {
         super(productId, name, price, stockQuantity);
