@@ -16,22 +16,28 @@ public class Transaction {
 
     public double processSale() {
         double totalPrice = 0;
+        double totalDiscount = 0;
+
         int terproses = 0;
         for (int i = 0; i < items.size(); i++) {
             Product item = items.get(i);
             int qty = itemQty.get(i);
             if (item != null) {
                 if(item.getStockQuantity() >= qty){
-                    totalPrice += item.getPrice() - item.calculateDiscount();
-                    item.updateStock(qty);
-                    item.updateSold(qty);
+                    for(int j = 0; j < qty; j++) {
+                        totalDiscount += item.calculateDiscount();
+                        totalPrice += item.getPrice();
+                        item.updateStock(1);
+                        item.updateSold(1);
+                    }
                     terproses++;
                 }
             }
         }
-        totalItems = terproses;
-        System.out.println("Item yang terproses di Transaksi " + this.transactionId + " : " + terproses + " / " + totalItems);
-        return totalPrice;
+        System.out.println("Item yang terproses di Transaksi " + this.transactionId + " : " + terproses + " / " + items.size());
+        System.out.println("Total pembelian : Rp " + totalPrice);
+        System.out.println("Total diskon : Rp " + totalDiscount);
+        return totalPrice - totalDiscount;
     }
 
     public void addItem(Product item) {
@@ -82,9 +88,10 @@ public class Transaction {
     public void showAllItems() {
         System.out.println("Daftar Item:");
         System.out.println("-".repeat(65));
-        System.out.printf("| %-30s | %-10s | %-15s |\n", "Nama", "Jumlah", "Diskon");
+        System.out.printf("| %-38s | %-20s |\n", "Nama", "Jumlah");
+        System.out.println("-".repeat(65));
         for (int i = 0; i < items.size(); i++) {
-            System.out.printf("| %-30s | %-10d | %-15.2f |\n", items.get(i).getName(), itemQty.get(i), items.get(i).calculateDiscount());
+            System.out.printf("| %-38s | %-20d |\n", items.get(i).getName(), itemQty.get(i));
         }
         System.out.println("-".repeat(65));
     }

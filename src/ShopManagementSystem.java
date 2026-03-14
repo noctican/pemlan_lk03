@@ -10,7 +10,6 @@ public class ShopManagementSystem {
 
         // show all product
         showAllProduct(barangBarang);
-        
 
         // contoh penerapan overloading method updateStock()
         simulateUpdateStock(barangBarang);
@@ -31,8 +30,8 @@ public class ShopManagementSystem {
         products[1] = new FoodProduct("P-1001", "Beras 1Kg", 17000, 12, "01-02-2027");
 
         // electronic product
-        products[2] = new ElectronicProduct("E-2000", "Kipas Angin", 1000000, 5, "2 Years");
-        products[3] = new ElectronicProduct("HP-2001", "Oneplus 15", 15000000, 11, "3 Years");
+        products[2] = new ElectronicProduct("E-2000", "Kipas Angin", 1000000, 5, "2 Tahun");
+        products[3] = new ElectronicProduct("P-2001", "Canon 12A", 500000, 11, "3 Tahun");
 
         // clothing product
         products[4] = new ClothingProduct("SHIRT-112", "Blue Shirt", 300.000, 10, "L", "Polo");
@@ -41,13 +40,14 @@ public class ShopManagementSystem {
 
     private static void showAllProduct(Product[] products) {
         System.out.println("=================== DAFTAR PRODUK FILKOM MART ===================");
-        System.out.println("-".repeat(65));
-        System.out.printf("| %-12s | %-15s | %-10s | %-5s | %-7s |\n", "ID Produk", "Nama Produk", "Harga", "Stok", "Terjual");
-        System.out.println("-".repeat(65));
+        System.out.println("-".repeat(92));
+        System.out.printf("| %-12s | %-15s | %-10s | %-5s | %-7s | %-25s |\n", "ID Produk", "Nama Produk", "Harga", "Stok", "Terjual", "Catatan");
+        System.out.println("-".repeat(92));
         for (Product p : products) {
-            p.showInfo();
+            p.getProductInfo();
+            System.out.println();
         }
-        System.out.println("-".repeat(65));
+        System.out.println("-".repeat(92));
         System.out.println("\n");
     }
 
@@ -95,9 +95,9 @@ public class ShopManagementSystem {
         
         // transaksi 2
         transactions[1] = new Transaction("TRX002");
-        transactions[1].addItem(products[1]);
-        transactions[1].addItem(products[3], 5);
-        transactions[1].addItem(products[5], 2);
+        transactions[1].addItem(products[1], 2);
+        transactions[1].addItem(products[3]);
+        transactions[1].addItem(products[5], 3);
         
         System.out.println(">>> TRANSAKSI 2 (ID: " + transactions[1].getTransactionId() + ") <<<");
         transactions[1].showAllItems();

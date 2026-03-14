@@ -15,6 +15,12 @@ public class ClothingProduct extends Product {
         return 0.0;
     }
 
+    @Override
+    public void getProductInfo() {
+        super.getProductInfo();
+        System.out.printf(" Ukuran : %-16s |", size);
+    }
+
     public String getSize() {
         return size;
     }
