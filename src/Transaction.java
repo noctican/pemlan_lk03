@@ -37,8 +37,8 @@ public class Transaction {
                 }
             }
         }
-        totalItems = terproses;
         System.out.println("Item yang terproses di Transaksi " + this.transactionId + " : " + terproses + " / " + totalItems);
+        totalItems = terproses;
         System.out.println("Total pembelian : Rp " + totalPrice);
         System.out.println("Total diskon : Rp " + totalDiscount);
         return totalPrice - totalDiscount;
