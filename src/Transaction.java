@@ -25,16 +25,20 @@ public class Transaction {
             if (item != null) {
                 if(item.getStockQuantity() >= qty){
                     for(int j = 0; j < qty; j++) {
+                        if(item.getStockQuantity() <= 0){
+                            break;
+                        }
                         totalDiscount += item.calculateDiscount();
                         totalPrice += item.getPrice();
                         item.updateStock(1);
                         item.updateSold(1);
+                        terproses++;
                     }
-                    terproses++;
                 }
             }
         }
-        System.out.println("Item yang terproses di Transaksi " + this.transactionId + " : " + terproses + " / " + items.size());
+        totalItems = terproses;
+        System.out.println("Item yang terproses di Transaksi " + this.transactionId + " : " + terproses + " / " + totalItems);
         System.out.println("Total pembelian : Rp " + totalPrice);
         System.out.println("Total diskon : Rp " + totalDiscount);
         return totalPrice - totalDiscount;
