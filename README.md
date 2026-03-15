@@ -1,13 +1,72 @@
 # LK03 - Kelas, Obyek, Constructor, Inheritance, Polymorphism, Overloading dan Overriding
 
 ## Kelompok
-| Nama | NIM | Kontribusi |
-| ---- | :--: | ---- |
-| Candra Andika Putra | 255150200111035 | - |
-| Haidar Nadhifa Putra | 255150201111031| - |
-| Bagas Zakaria | 255150207111064 | - |
-| Muhammad Hilmi Isnaeni | 255150201111026 | - |
-| Noval Zakky Ramadhan | 255150201111030 | - |
+<table>
+    <thead>
+        <tr>
+            <th>Nama</th>
+            <th>NIM</th>
+            <th>Kontribusi</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Candra Andika Putra</td>
+            <td>255150200111035</td>
+            <td>
+                <ul>
+                    <li>Mengimplementasikan class ClothingProduct.</li>
+                    <li>Mengimplementasikan class Transaction.</li>
+                    <li>Melakukan perbaikan class ShopManagementSystem.</li>
+                    <li>Penyesuaian laporan LK03.</li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td>Haidar Nadhifa Putra</td>
+            <td>255150201111031</td>
+            <td>
+                <ul>
+                    <li>Mengimplementasikan abstract class Product.</li>
+                    <li>Memperbaiki beberapa aturan untuk menyesuaikan LK03.</li>
+                    <li>Menyamakan logika antar subclass.</li>
+                    <li>Membuat kerangka laporan.</li>
+                    <li>Membuat class diagram. </li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td>Bagas Zakaria</td>
+            <td>255150207111064</td>
+            <td>
+                <ul>
+                    <li>Mengimplementasikan class FoodProduct.</li>
+                    <li>Melakukan penyesuaian pada abstract class Product.</li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td>Muhammad Hilmi Isnaeni</td>
+            <td>255150201111026</td>
+            <td>
+                <ul>
+                    <li>Mengimplementasikan class main ShopManagementSystem.</li>
+                    <li>Penyesuaian laporan LK03.</li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td>Noval Zakky Ramadhan</td>
+            <td>255150201111030</td>
+            <td>
+                <ul>
+                    <li>Mengimplementasikan class ElectronicProduct</li>
+                    <li>Kerangka awal tampilan output</li>
+                </ul>
+            </td>
+        </tr>
+    </tbody>
+</table>
 
 ## Deskripsi Soal
 Sebagai seorang developer software , Anda diminta untuk merancang struktur dasar perangkat lunak untuk sebuah toko ritel offline bernama "Filkom Mart". Toko ini menjual berbagai kategori produk dengan aturan tertentu. Tugas Anda adalah membuat model class diagram dan aplikasi Point Of Sale (POS) dari toko Filkom Mart dan kemudian mengimplementasikannya kedalam program java menggunakan paradigma Pemrograman Berorientasi Object (PBO). 
