@@ -25,9 +25,6 @@ public class Transaction {
             if (item != null) {
                 if(item.getStockQuantity() >= qty){
                     for(int j = 0; j < qty; j++) {
-                        if(item.getStockQuantity() <= 0){
-                            break;
-                        }
                         totalDiscount += item.calculateDiscount();
                         totalPrice += item.getPrice();
                         item.updateStock(1);
