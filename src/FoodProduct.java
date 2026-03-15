@@ -16,7 +16,7 @@ public class FoodProduct extends Product {
     @Override
     public void getProductInfo() {
         super.getProductInfo();
-        System.out.println("Tanggal kadaluwarsa: " + expiryDate);
+        System.out.printf(" kadaluwarsa : %-11s |", expiryDate);
     }
 
     // Accessor

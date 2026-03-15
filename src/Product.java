@@ -19,10 +19,7 @@ public abstract class Product {
     // Method
     public abstract double calculateDiscount();
     public void getProductInfo(){
-        System.out.println("Product ID     : " + productId);
-        System.out.println("Name           : " + name);
-        System.out.println("Price          : " + price);
-        System.out.println("Stock Quantity : " + stockQuantity);
+        System.out.printf("| %-12s | %-15s | %-10.0f | %-5d | %-7d |", productId, name, price, stockQuantity, soldQuantity);
     }
 
     public void updateStock(int dikurang){
@@ -31,7 +28,7 @@ public abstract class Product {
 
     public void updateStock(int dikurang, String info){
         this.stockQuantity -= dikurang;
-        System.out.println(info);
+        System.out.print(info);
     }
 
     public void updateSold(int ditambah){
@@ -60,10 +57,6 @@ public abstract class Product {
     }
 
     // Setter
-    public void setProductId(String x){
-        this.productId = x;
-    }
-
     public void setName(String x){
         this.name = x;
     }
@@ -74,9 +67,5 @@ public abstract class Product {
 
     public void setStockQuantity(int x){
         this.stockQuantity = x;
-    }
-
-    public void setSoldQuantity(int x){
-        this.soldQuantity = x;
     }
 }

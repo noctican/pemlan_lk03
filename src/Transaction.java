@@ -5,38 +5,61 @@ import java.util.ArrayList;
 public class Transaction {
     private String transactionId;
     private ArrayList<Product> items;
+    private ArrayList<Integer> itemQty;
     private int totalItems = 0;
 
     public Transaction(String transactionId){
         this.transactionId = transactionId;
         this.items = new ArrayList<>();
+        this.itemQty = new ArrayList<>();
     }
 
     public double processSale() {
         double totalPrice = 0;
+        double totalDiscount = 0;
+
         int terproses = 0;
-        for (Product item : items) {
+        for (int i = 0; i < items.size(); i++) {
+            Product item = items.get(i);
+            int qty = itemQty.get(i);
             if (item != null) {
-                if(item.getStockQuantity() > 0){
-                    totalPrice += item.getPrice() - item.calculateDiscount();
-                    item.updateStock(1);
-                    item.updateSold(1);
-                    terproses++;
+                if(item.getStockQuantity() >= qty){
+                    for(int j = 0; j < qty; j++) {
+                        totalDiscount += item.calculateDiscount();
+                        totalPrice += item.getPrice();
+                        item.updateStock(1);
+                        item.updateSold(1);
+                        terproses++;
+                    }
                 }
             }
         }
-        totalItems = terproses;
         System.out.println("Item yang terproses di Transaksi " + this.transactionId + " : " + terproses + " / " + totalItems);
-        return totalPrice;
+        totalItems = terproses;
+        System.out.println("Total pembelian : Rp " + totalPrice);
+        System.out.println("Total diskon : Rp " + totalDiscount);
+        return totalPrice - totalDiscount;
     }
 
     public void addItem(Product item) {
-        items.add(item);
+        if(items.contains(item)) {
+            int index = items.indexOf(item);
+            itemQty.set(index, itemQty.get(index) + 1);
+        } else {
+            items.add(item);
+            itemQty.add(1);
+        }
         totalItems++;
     }
 
     public void addItem(Product item, int quantity) {
-        for (int i = 0; i < quantity; i++) items.add(item);
+        if(items.contains(item)) {
+            int index = items.indexOf(item);
+            itemQty.set(index, itemQty.get(index) + quantity);
+        } else {
+            items.add(item);
+            itemQty.add(quantity);
+        }
         totalItems += quantity;
     }
 
@@ -53,16 +76,24 @@ public class Transaction {
         return this.items;
     }
 
-    // Setter
-    public void setTransactionId(String x){
-        this.transactionId = x;
+    public int getTotalPrice() {
+        double totalPrice = 0;
+        for (Product item : items) {
+            if (item != null) {
+                totalPrice += item.getPrice() - item.calculateDiscount();
+            }
+        }
+        return (int) totalPrice;
     }
 
-    public void setItems(ArrayList<Product> x) {
-        this.items = x;
-    }
-
-    public void setTotalItems(int x) {
-        this.totalItems = x;
+    public void showAllItems() {
+        System.out.println("Daftar Item:");
+        System.out.println("-".repeat(65));
+        System.out.printf("| %-38s | %-20s |\n", "Nama", "Jumlah");
+        System.out.println("-".repeat(65));
+        for (int i = 0; i < items.size(); i++) {
+            System.out.printf("| %-38s | %-20d |\n", items.get(i).getName(), itemQty.get(i));
+        }
+        System.out.println("-".repeat(65));
     }
 }
